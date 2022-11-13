@@ -16,6 +16,8 @@
 }
 canvas {
   position: absolute;
+  background-image: url("bg.jpg");
+  background-size: contain;
   width: 100%;
   height: 100%;
 }
@@ -28,8 +30,7 @@ canvas {
 </style>
 <body>
     <canvas id="pinkboard"></canvas>
- 
-    <script>
+<script>
        
 /*
  * Settings
@@ -220,8 +221,10 @@ var ParticlePool = (function() {
     context.closePath();
     // create the fill
     context.fillStyle = '#ea80b0';
+    // context.font = 'bold 200px Arial';
+    // context.fillText("Hello Canvas", 180, 140); 
+    // context.fillText("Hello",100,100)
     context.fill();
-    context.fillText("梁燕鸿");
     // create the image
     var image = new Image();
     image.src = canvas.toDataURL();
@@ -252,6 +255,13 @@ var ParticlePool = (function() {
     // update and draw particles
     particles.update(deltaTime);
     particles.draw(context, image);
+    x = settings.particles.size / 2;
+    y = settings.particles.size / 2;
+    context.fillStyle = "#ea80b0";
+    context.font = "bold 75px Arial";
+    context.textAlign = '#ea80b0';
+    console.log(canvas);
+    context.fillText("梁燕鸿", canvas.width/2-50, canvas.height/2, 200);
   }
   
   // handle (re-)sizing of the canvas
